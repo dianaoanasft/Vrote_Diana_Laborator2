@@ -4,12 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Vrote_Diana_Laborator2.Data;
 using Vrote_Diana_Laborator2.Models;
 
-namespace Vrote_Diana_Laborator2.Pages.Books
+namespace Vrote_Diana_Laborator2.Pages.Categories
 {
     public class DetailsModel : PageModel
     {
@@ -20,35 +19,23 @@ namespace Vrote_Diana_Laborator2.Pages.Books
             _context = context;
         }
 
-      public Book Book { get; set; } = default!; 
+      public Category Category { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Book == null)
+            if (id == null || _context.Category == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book
-                .Include(b => b.Publisher)
-                .Include(b => b.Author)                
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (book == null)
+            var category = await _context.Category.FirstOrDefaultAsync(m => m.ID == id);
+            if (category == null)
             {
                 return NotFound();
             }
             else 
             {
-                Book = book;
-                ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
-                var authorList = _context.Author.Select(x => new
-                {
-                    x.ID,
-                    FullName = x.LastName + " " + x.FirstName
-                });
-
-               
-                ViewData["AuthorID"] = new SelectList(authorList, "ID", "FullName");
+                Category = category;
             }
             return Page();
         }

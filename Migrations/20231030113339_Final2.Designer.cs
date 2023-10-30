@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vrote_Diana_Laborator2.Data;
 
@@ -11,9 +12,10 @@ using Vrote_Diana_Laborator2.Data;
 namespace Vrote_Diana_Laborator2.Migrations
 {
     [DbContext(typeof(Vrote_Diana_Laborator2Context))]
-    partial class Vrote_Diana_Laborator2ContextModelSnapshot : ModelSnapshot
+    [Migration("20231030113339_Final2")]
+    partial class Final2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
