@@ -9,9 +9,14 @@ namespace Vrote_Diana_Laborator2.Models
         public int ID { get; set; }
 
         [Display(Name = "Book Title")]
+        [Required(ErrorMessage = "The Title field is required.")]
+        [MaxLength(150, ErrorMessage = "The Title field must be at most 150 characters.")]
+        [MinLength(3, ErrorMessage = "The Title field must be at least 3 characters.")]
         public string? Title { get; set; }
 
         [Column(TypeName = "decimal(6, 2)")]
+        [Range(0.01, 500)]
+
         public decimal Price { get; set; }
 
         [DataType(DataType.Date)] 
