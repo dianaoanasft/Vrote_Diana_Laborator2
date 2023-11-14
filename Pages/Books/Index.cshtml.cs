@@ -15,7 +15,7 @@ namespace Vrote_Diana_Laborator2.Pages.Books
     {
         private readonly Vrote_Diana_Laborator2.Data.Vrote_Diana_Laborator2Context _context;
 
-        public IndexModel(Vrote_Diana_Laborator2.Data.Vrote_Diana_Laborator2Context context)
+        public IndexModel (Vrote_Diana_Laborator2.Data.Vrote_Diana_Laborator2Context context)
         {
             _context = context;
         }
@@ -31,8 +31,7 @@ namespace Vrote_Diana_Laborator2.Pages.Books
         public string CurrentFilter { get; set; }
 
 
-        public async Task OnGetAsync(int? id, int? categoryID, string sortOrder, string
-searchString)
+        public async Task OnGetAsync(int? id, int? categoryID, string sortOrder, string searchString)
         {
             BookD = new BookData();
 

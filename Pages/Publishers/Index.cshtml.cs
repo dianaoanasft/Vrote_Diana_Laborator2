@@ -33,6 +33,7 @@ namespace Vrote_Diana_Laborator2.Pages.Publishers
             .ThenInclude(c => c.Author)
             .OrderBy(i => i.PublisherName)
             .ToListAsync();
+
             if (id != null)
             {
                 PublisherID = id.Value;

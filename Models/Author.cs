@@ -12,6 +12,7 @@ namespace Vrote_Diana_Laborator2.Models
             get { return $"{LastName}{FirstName}"; }
         }
         public string FirstName { get; set; }
+
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public ICollection<Book>? Books { get; set; }

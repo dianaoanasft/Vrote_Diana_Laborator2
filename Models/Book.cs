@@ -9,7 +9,7 @@ namespace Vrote_Diana_Laborator2.Models
         public int ID { get; set; }
 
         [Display(Name = "Book Title")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
@@ -23,6 +23,10 @@ namespace Vrote_Diana_Laborator2.Models
         public int? AuthorID { get; set; }
         public Author? Author { get; set; }
 
+        public int? BorrowingID { get; set; }
+        public Borrowing? Borrowing { get; set; }
+
         public ICollection<BookCategory>? BookCategories { get; set; }
+
     }
 }
